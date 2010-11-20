@@ -2,8 +2,8 @@
 <html>
 
 <head>
-	<title>Cool.io Event Framework for Ruby</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+    <title>Cool.io Event Framework for Ruby</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
@@ -16,15 +16,56 @@
 </p>
 
 <p>
-	<a href="http://github.com/tarcieri/cool.io">Cool.io lives on Github</a>
+    <a href="http://github.com/tarcieri/cool.io">Cool.io lives on Github</a>
 </p>
 
 <h1>A Quick Tour</h1>
-<p class="cooliosez">
-	<img class="coolio" src="/images/coolio.png">
-	Hi, I'm Coolio, the fabulously wealthy singer of Gangster's Paradise. Let's write an event-driven echo server:
+<p class="coolio-sez">
+    <img class="coolio" src="/images/coolio.png">
+    <span class="coolio-blurb">Hi, I'm Coolio, the fabulously wealthy singer of Gangster's Paradise. Let's write an event-driven echo server:</span>
 </p>
 <script src="https://gist.github.com/707684.js"></script>
+
+<p class="coolio-sez">
+    <img class="coolio" src="/images/coolio.png">
+    <span class="coolio-blurb">See? Look at that, it's easy! But how's it work? Let's take a peek into the parts of my DSL:</span>
+</p>
+<p>
+    <ul class="code-bullets">
+        <li>
+            <span class="code">cool.io.connection</span> -
+            Create a new connection class. Give your connection a name, then use the block to define callbacks 
+            for various events.
+        </li>
+        
+        <li>
+            <span class="code">on_connect</span>, <span class="code">on_close</span>, <span class="code">on_read</span> -
+            These are callbacks fired when events occur, specifically when we get a new connection to our echo
+            server, when a connection closes, and when data is read from the network.
+        </li>
+        
+        <li>
+            <span class="code">cool.io.server</span> -
+            This creates a new server that listens on the given host and port. When someone connects to our server,
+            a new connection of the given type will be created. In the case of our echo server, we'll create new
+            :echo_server_connections.
+        </li>
+        
+        <li>
+            <span class="code">cool.io.attach</span> -
+            This attaches the newly created server to the default cool.io event loop. This means the event loop will
+            listen for events from the server. There's also <span class="code">cool.io.detach</span> which will stop
+            the event loop from monitoring events from our server.
+        </li>
+        
+        <li>
+            <span class="code">cool.io.run</span> -
+            This runs the default cool.io event loop. The event loop will block, waiting for events. In the case of our
+            echo server, it will wait for incoming connections, and once it's received them, it will wait for the client
+            to send data, the echo it back to the client.
+        </li> 
+    </ul>
+</p>
 
 </div>
 </body>

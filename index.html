@@ -52,13 +52,6 @@
         </li>
         
         <li>
-            <span class="code">cool.io.attach</span> -
-            This attaches the newly created server to the default cool.io event loop. This means the event loop will
-            listen for events from the server. There's also <span class="code">cool.io.detach</span> which will stop
-            the event loop from monitoring events from our server.
-        </li>
-        
-        <li>
             <span class="code">cool.io.run</span> -
             This runs the default cool.io event loop. The event loop will block, waiting for events. In the case of our
             echo server, it will wait for incoming connections, and once it's received them, it will wait for the client

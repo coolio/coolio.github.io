@@ -26,6 +26,7 @@
 </p>
 <script src="https://gist.github.com/707684.js"></script>
 
+<hr>
 <p class="coolio-sez">
     <img class="coolio" src="/images/coolio.png">
     <span class="coolio-blurb">See? Look at that, it's easy! But how's it work? Let's take a peek into the parts of my DSL:</span>
@@ -60,6 +61,41 @@
     </ul>
 </p>
 
+<hr>
+<p class+"coolio-sez">
+    <img class="coolio" src="/images/coolio.png">
+    <span class="coolio-blurb">Okay, now you understand the basics of writing servers. But how do we write clients?
+        Let's write a client for our echo server:</span>
+</p>
+<script src="https://gist.github.com/708116.js"></script>
+
+<hr>
+<p class="coolio-sez">
+    <img class="coolio" src="/images/coolio.png">
+    <span class="coolio-blurb">Get it? Writing clients is a lot like writing servers. There's just a few differences:</span>
+</p>
+<p>
+    <ul class="code-bullets">        
+        <li>
+            <span class="code">on_resolve_failed</span> and <span class="code">on_connect_failed</span> -
+            These are callbacks fired when DNS fails to resolve or if we couldn't open a connection.
+            <span class="code">on_connect_failed</span> will always get fired if the connection fails
+            and <span class="code">on_resolve_failed</span> is a callback that lets you handle DNS resolution
+            failures specifically.
+        </li>
+        
+        <li>
+            <span class="code">cool.io.connect</span> -
+            This tells me you want to connect to a remote server. Just give me an address, port, and connection class to use
+        </li>
+    </ul>
+</p>
+
+<hr>
+<p class+"coolio-sez">
+    <img class="coolio" src="/images/coolio.png">
+    <span class="coolio-blurb">Aight, now write yourself some event driven code in Ruby!</span>
+</p>
 </div>
 </body>
 </html>

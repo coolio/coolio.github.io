@@ -34,22 +34,14 @@
 <p>
     <ul class="code-bullets">
         <li>
-            <span class="code">cool.io.connection</span> -
-            Create a new connection class. Give your connection a name, then use the block to define callbacks 
-            for various events.
-        </li>
-        
+            <span class="code">cool.io.server</span> -
+            This creates a new server that listens on the given host and port. When someone connects to our server,
+            the callbacks specified in the block are fired for various events.
+        </li>        
         <li>
             <span class="code">on_connect</span>, <span class="code">on_close</span>, <span class="code">on_read</span> -
             These are callbacks fired when events occur, specifically when we get a new connection to our echo
             server, when a connection closes, and when data is read from the network.
-        </li>
-        
-        <li>
-            <span class="code">cool.io.server</span> -
-            This creates a new server that listens on the given host and port. When someone connects to our server,
-            a new connection of the given type will be created. In the case of our echo server, we'll create new
-            :echo_server_connections.
         </li>
         
         <li>
